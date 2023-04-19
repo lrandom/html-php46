@@ -5,14 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<form onsubmit="return validate()">
-    <label>
-        <input type="text" name="username" class="username"/>
-    </label>
 
-    <label>
-        <input type="password" name="password" class="password"/>
-    </label>
+<form onsubmit="return validate()" class="form">
+    <div class="form-control">
+        <label>
+            <span>Username</span>
+            <input type="text" placeholder="UserName" name="username" class="username"/>
+        </label>
+        <p class="error"></p>
+    </div>
+
+
+    <div class="form-control">
+        <label>
+            <span>Password</span>
+            <input type="password" placeholder="Password" name="password" class="password"/>
+        </label>
+        <p class="error error-password"></p>
+    </div>
 
     <button>Submit</button>
 </form>
@@ -23,14 +33,17 @@
         const usernameText = usernameNode.value;
         if (!usernameText) {
             //kiểm tra xem text người dunùng điền vào có khaác rỗng hay không
-            alert("Vui lòng điền username");
+            //alert("Vui lòng điền username");
+            //document.querySelector('.form-control .error-username').innerText = 'Vui lòng điền username';
+            usernameNode.closest('.form-control').querySelector('.error').innerText = 'Vui lòng điền username';
             return false;
         }
 
         const passwordNode = document.querySelector('.password');
         const passwordText = passwordNode.value;
         if (!passwordText) {
-            alert("Vui lòng điền password");
+            //alert("Vui lòng điền password");
+            passwordNode.closest('.form-control').querySelector('.error-password').innerText = 'Vui lòng điền passwordx';
             return false;
         }
 
@@ -38,5 +51,25 @@
         return true;
     }
 </script>
+
+<style>
+    .error {
+        color: red;
+    }
+
+    .form {
+        width: 500px;
+        margin: 0px auto;
+    }
+
+    .form .form-control {
+        margin-top: 10px;
+    }
+
+    .form .form-control label span {
+        display: inline-block;
+        width: 100px;
+    }
+</style>
 </body>
 </html>
