@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="wrapper">A</div>
+<p>B</p>
+
+<button onclick="changeText()">Change Text</button>
+
+<script>
+    function changeText() {
+        const wrapperNode = document.querySelector('#wrapper');
+        wrapperNode.innerText = "<strong>Hello</strong>";
+
+        const pNode = document.querySelector('p');
+        pNode.innerHTML = "<strong>Hello</strong>";
+        pNode.style.background = "red";
+        pNode.classList.add('text-style');
+    }
+</script>
+
+<style>
+    .text-style {
+        font-size: 40px;
+        font-weight: bold;
+    }
+</style>
+</body>
+</html>

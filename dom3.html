@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form onsubmit="return validate()">
+    <label>
+        <input type="text" name="username" class="username"/>
+    </label>
+
+    <label>
+        <input type="password" name="password" class="password"/>
+    </label>
+
+    <button>Submit</button>
+</form>
+
+<script>
+    function validate() {
+        const usernameNode = document.querySelector('.username');
+        const usernameText = usernameNode.value;
+        if (!usernameText) {
+            //kiểm tra xem text người dunùng điền vào có khaác rỗng hay không
+            alert("Vui lòng điền username");
+            return false;
+        }
+
+        const passwordNode = document.querySelector('.password');
+        const passwordText = passwordNode.value;
+        if (!passwordText) {
+            alert("Vui lòng điền password");
+            return false;
+        }
+
+        //cho phép gửi dl đi
+        return true;
+    }
+</script>
+</body>
+</html>
